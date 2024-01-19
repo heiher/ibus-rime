@@ -523,6 +523,9 @@ ibus_rime_engine_process_key_event (IBusEngine *engine,
   gboolean result =
       rime_api->process_key(rime_engine->session_id, keyval, modifiers);
   ibus_rime_engine_update(rime_engine);
+  if (keyval == IBUS_KEY_Caps_Lock) {
+    return FALSE;
+  }
   return result;
 }
 
